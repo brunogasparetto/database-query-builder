@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\QueryBuilder\Tests;
+namespace QueryBuilder\Tests;
 
 use PHPUnit\Framework\TestCase;
 
@@ -8,7 +8,7 @@ class UpdateCommandTest extends TestCase
 {
     /**
      *
-     * @var \Database\QueryBuilder\Builder\UpdateCommand
+     * @var \QueryBuilder\Builder\UpdateCommand
      */
     private $command;
 
@@ -21,7 +21,7 @@ class UpdateCommandTest extends TestCase
 
     public function setUp()
     {
-        $this->command = new \Database\QueryBuilder\Builder\UpdateCommand(self::$conn);
+        $this->command = new \QueryBuilder\Builder\UpdateCommand(self::$conn);
     }
 
     public function testEmptySql()
@@ -121,7 +121,7 @@ class UpdateCommandTest extends TestCase
     {
         $this->command
             ->update('table1')
-            ->values('column', new \Database\QueryBuilder\Builder\Clause\Expr('column + 1'))
+            ->values('column', new \QueryBuilder\Builder\Clause\Expr('column + 1'))
             ->where('column', '>', 10);
         $this->assertEquals(
             "UPDATE table1 SET column = column + 1 WHERE column > 10",

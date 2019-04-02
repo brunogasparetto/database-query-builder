@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\QueryBuilder\Builder;
+namespace QueryBuilder\Builder;
 
 abstract class Builder implements Clause\ISQL
 {

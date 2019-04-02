@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\QueryBuilder\Builder;
+namespace QueryBuilder\Builder;
 
 class SelectCommand extends Builder
 {
@@ -33,7 +33,7 @@ class SelectCommand extends Builder
      * Accept a variable list of arguments.
      *
      * @param mixed $columns An array of columns or lenght variabel arguments, both with strings
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function select($columns = null)
     {
@@ -52,7 +52,7 @@ class SelectCommand extends Builder
      * Each call adds columns.
      *
      * @param mixed $columns An array of columns or lenght variabel arguments, both with strings
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function group($columns)
     {
@@ -67,7 +67,7 @@ class SelectCommand extends Builder
     protected function setUpHaving()
     {
         !isset($this->sqlParts->having)
-        and $this->sqlParts->having = new \Database\QueryBuilder\Builder\Clause\Having($this->connection);
+        and $this->sqlParts->having = new \QueryBuilder\Builder\Clause\Having($this->connection);
     }
 
     /**
@@ -75,7 +75,7 @@ class SelectCommand extends Builder
      * @param string $column
      * @param string $op
      * @param mixed $value
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function having($column, $op, $value)
     {
@@ -89,7 +89,7 @@ class SelectCommand extends Builder
      * @param string $column
      * @param string $op
      * @param mixed $value
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function havingOr($column, $op, $value)
     {
@@ -100,7 +100,7 @@ class SelectCommand extends Builder
 
     /**
      *
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function havingOpen()
     {
@@ -109,7 +109,7 @@ class SelectCommand extends Builder
 
     /**
      *
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function havingClose()
     {
@@ -118,7 +118,7 @@ class SelectCommand extends Builder
 
     /**
      *
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function havingOrOpen()
     {
@@ -127,7 +127,7 @@ class SelectCommand extends Builder
 
     /**
      *
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function havingOrClose()
     {

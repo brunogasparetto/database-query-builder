@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\QueryBuilder\Tests;
+namespace QueryBuilder\Tests;
 
 use PHPUnit\Framework\TestCase;
 
@@ -8,7 +8,7 @@ class DeleteCommandTest extends TestCase
 {
     /**
      *
-     * @var \Database\QueryBuilder\Builder\DeleteCommand
+     * @var \QueryBuilder\Builder\DeleteCommand
      */
     private $command;
 
@@ -21,7 +21,7 @@ class DeleteCommandTest extends TestCase
 
     public function setUp()
     {
-        $this->command = new \Database\QueryBuilder\Builder\DeleteCommand(self::$conn);
+        $this->command = new \QueryBuilder\Builder\DeleteCommand(self::$conn);
     }
 
     public function testEmptySql()
@@ -121,7 +121,7 @@ class DeleteCommandTest extends TestCase
 
     public function testWhereSubquery()
     {
-        $subQuery = new \Database\QueryBuilder\Builder\SelectCommand(self::$conn);
+        $subQuery = new \QueryBuilder\Builder\SelectCommand(self::$conn);
         $subQuery->select('id')->from('othertable')->where('age', '<', 18);
         $this->command->from('table')->where('id', 'IN', $subQuery);
         $this->assertEquals(

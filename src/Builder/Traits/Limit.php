@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\QueryBuilder\Builder\Traits;
+namespace QueryBuilder\Builder\Traits;
 
 trait Limit
 {
@@ -9,11 +9,11 @@ trait Limit
      *
      * @param int $limit
      * @param int $offset [optional]
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function limit($limit, $offset = 0)
     {
-        !isset($this->sqlParts->limit) and $this->sqlParts->limit = new \Database\QueryBuilder\Builder\Clause\Limit();
+        !isset($this->sqlParts->limit) and $this->sqlParts->limit = new \QueryBuilder\Builder\Clause\Limit();
         $this->sqlParts->limit->set($limit, $offset);
         return $this;
     }

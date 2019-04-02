@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\QueryBuilder\Builder\Clause;
+namespace QueryBuilder\Builder\Clause;
 
 /**
  * The Having Clause

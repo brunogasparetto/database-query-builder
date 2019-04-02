@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\QueryBuilder\Builder\Clause;
+namespace QueryBuilder\Builder\Clause;
 
-use \Database\QueryBuilder\Builder\Builder as Builder;
+use \QueryBuilder\Builder\Builder as Builder;
 
 /**
  * Abstract Condition to implements Where and Having Clauses

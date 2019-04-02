@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\QueryBuilder\Builder;
+namespace QueryBuilder\Builder;
 
-use Database\QueryBuilder\Builder\Clause\IClause;
+use QueryBuilder\Builder\Clause\IClause;
 
 /**
  * Container to save the SQL parts

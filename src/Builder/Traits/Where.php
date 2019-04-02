@@ -1,13 +1,13 @@
 <?php
 
-namespace Database\QueryBuilder\Builder\Traits;
+namespace QueryBuilder\Builder\Traits;
 
 trait Where
 {
     protected function setUpWhere()
     {
         !isset($this->sqlParts->where)
-        and $this->sqlParts->where = new \Database\QueryBuilder\Builder\Clause\Where($this->connection);
+        and $this->sqlParts->where = new \QueryBuilder\Builder\Clause\Where($this->connection);
     }
 
     /**
@@ -16,7 +16,7 @@ trait Where
      * @param string $column
      * @param string $op
      * @param mixed $value
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function where($column, $op, $value)
     {
@@ -31,7 +31,7 @@ trait Where
      * @param string $column
      * @param string $op
      * @param mixed $value
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function whereOr($column, $op, $value)
     {
@@ -43,7 +43,7 @@ trait Where
     /**
      * Open a Where group with AND operator
      *
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function whereOpen()
     {
@@ -53,7 +53,7 @@ trait Where
     /**
      * Close the Where group with AND operator
      *
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function whereClose()
     {
@@ -63,7 +63,7 @@ trait Where
     /**
      * Open a Where group with OR operator
      *
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function whereOrOpen()
     {
@@ -73,7 +73,7 @@ trait Where
     /**
      * Close the Where group with OR operator
      *
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function whereOrClose()
     {

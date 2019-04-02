@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\QueryBuilder\Builder\Traits;
+namespace QueryBuilder\Builder\Traits;
 
 trait Order
 {
@@ -11,11 +11,11 @@ trait Order
      *
      * @param string $column
      * @param string $order [optional]
-     * @return \Database\QueryBuilder\Builder\Select
+     * @return \QueryBuilder\Builder\Select
      */
     public function order($column, $order = 'ASC')
     {
-        !isset($this->sqlParts->order) and $this->sqlParts->order = new \Database\QueryBuilder\Builder\Clause\Order();
+        !isset($this->sqlParts->order) and $this->sqlParts->order = new \QueryBuilder\Builder\Clause\Order();
         $this->sqlParts->order->set($column, $order);
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\QueryBuilder\Tests;
+namespace QueryBuilder\Tests;
 
 use PHPUnit\Framework\TestCase;
 
@@ -8,7 +8,7 @@ class SelectCommandTest extends TestCase
 {
     /**
      *
-     * @var Database\QueryBuilder\Builder\SelectCommand
+     * @var QueryBuilder\Builder\SelectCommand
      */
     private $command;
 
@@ -21,7 +21,7 @@ class SelectCommandTest extends TestCase
 
     public function setUp()
     {
-        $this->command = new \Database\QueryBuilder\Builder\SelectCommand(self::$conn);
+        $this->command = new \QueryBuilder\Builder\SelectCommand(self::$conn);
     }
 
     public function testEmptySql()
@@ -194,7 +194,7 @@ class SelectCommandTest extends TestCase
 
     public function testWhereSubquery()
     {
-        $subQuery = new \Database\QueryBuilder\Builder\SelectCommand(self::$conn);
+        $subQuery = new \QueryBuilder\Builder\SelectCommand(self::$conn);
         $subQuery->select('id')->from('subTable')->where('removed', '=', true);
 
         $this->command->select('column')->from('table')->where('id', 'IN', $subQuery);

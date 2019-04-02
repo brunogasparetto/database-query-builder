@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\QueryBuilder\Tests;
+namespace QueryBuilder\Tests;
 
 use PHPUnit\Framework\TestCase;
 
@@ -8,7 +8,7 @@ class InsertCommandTest extends TestCase
 {
     /**
      *
-     * @var \Database\QueryBuilder\Builder\InsertCommand
+     * @var \QueryBuilder\Builder\InsertCommand
      */
     private $command;
 
@@ -21,7 +21,7 @@ class InsertCommandTest extends TestCase
 
     public function setUp()
     {
-        $this->command = new \Database\QueryBuilder\Builder\InsertCommand(self::$conn);
+        $this->command = new \QueryBuilder\Builder\InsertCommand(self::$conn);
     }
 
     public function testEmptySql()
@@ -75,7 +75,7 @@ class InsertCommandTest extends TestCase
 
     public function testDuplicate()
     {
-        $this->command->into('table')->values(['column' => 'value'])->onDuplicate('column', new \Database\QueryBuilder\Builder\Clause\Expr('column + 1'));
+        $this->command->into('table')->values(['column' => 'value'])->onDuplicate('column', new \QueryBuilder\Builder\Clause\Expr('column + 1'));
         $this->assertEquals(
             "INSERT INTO table (column) VALUES ('value') ON DUPLICATE KEY UPDATE column = column + 1",
             (string) $this->command
@@ -100,8 +100,8 @@ class InsertCommandTest extends TestCase
         $this->command
             ->into('table')
             ->values(['column1' => 'value1', 'column2' => 'value2'])
-            ->onDuplicate('column1', new \Database\QueryBuilder\Builder\Clause\Expr('column1 + 1'))
-            ->onDuplicate('column2', new \Database\QueryBuilder\Builder\Clause\Expr('column2 * 2'));
+            ->onDuplicate('column1', new \QueryBuilder\Builder\Clause\Expr('column1 + 1'))
+            ->onDuplicate('column2', new \QueryBuilder\Builder\Clause\Expr('column2 * 2'));
 
         $this->assertEquals(
             "INSERT INTO table (column1, column2) VALUES ('value1', 'value2') ON DUPLICATE KEY UPDATE column1 = column1 + 1, column2 = column2 * 2",
@@ -115,8 +115,8 @@ class InsertCommandTest extends TestCase
             ->into('table')
             ->values(['column1' => 'value1', 'column2' => 'value2'])
             ->onDuplicate([
-                'column1' => new \Database\QueryBuilder\Builder\Clause\Expr('column1 + 1'),
-                'column2' => new \Database\QueryBuilder\Builder\Clause\Expr('column2 * 2')
+                'column1' => new \QueryBuilder\Builder\Clause\Expr('column1 + 1'),
+                'column2' => new \QueryBuilder\Builder\Clause\Expr('column2 * 2')
                 ]);
 
         $this->assertEquals(

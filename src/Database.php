@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\QueryBuilder;
+namespace QueryBuilder;
 
 /**
  * The factory to Query Builder commands
@@ -38,7 +38,7 @@ class Database
      * Create the Select Builder
      *
      * @param string $columns
-     * @return \Database\QueryBuilder\Builder\SelectCommand
+     * @return \QueryBuilder\Builder\SelectCommand
      */
     public function select(...$columns)
     {
@@ -50,7 +50,7 @@ class Database
      * Create the Delete Builder
      *
      * @param string $table
-     * @return \Database\QueryBuilder\Builder\DeleteCommand
+     * @return \QueryBuilder\Builder\DeleteCommand
      */
     public function delete($table)
     {
@@ -62,7 +62,7 @@ class Database
      * Create the Update Builder
      *
      * @param string $table
-     * @return \Database\QueryBuilder\Builder\UpdateCommand
+     * @return \QueryBuilder\Builder\UpdateCommand
      */
     public function update($table)
     {
@@ -74,7 +74,7 @@ class Database
      * Create the Insert Builder
      *
      * @param string $table
-     * @return \Database\QueryBuilder\Builder\InsertCommand
+     * @return \QueryBuilder\Builder\InsertCommand
      */
     public function insert($table)
     {
@@ -86,7 +86,7 @@ class Database
      * A value used without quoting
      *
      * @param string $sql
-     * @return \Database\QueryBuilder\Builder\Clause\Expr
+     * @return \QueryBuilder\Builder\Clause\Expr
      */
     public function expr($sql)
     {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Database\QueryBuilder\Builder\Traits;
+namespace QueryBuilder\Builder\Traits;
 
 trait Join
 {
     public function join($table, $type = 'INNER')
     {
-        !isset($this->sqlParts->join) and $this->sqlParts->join = new \Database\QueryBuilder\Builder\Clause\Join();
+        !isset($this->sqlParts->join) and $this->sqlParts->join = new \QueryBuilder\Builder\Clause\Join();
         $this->sqlParts->join->set($table, $type);
         return $this;
     }
