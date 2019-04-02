@@ -6,6 +6,14 @@
 
 Simplistic Query Builder made a long time ago for fun.
 
+## Installation
+
+The package is available on [Packagist](https://packagist.org/packages/brunogasparetto/query-builder). You can install it using [Composer](http://getcomposer.org/)
+
+```bash
+$ composer require brunogasparetto/query-builder
+```
+
 ## Example
 
 ```php
