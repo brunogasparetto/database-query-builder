@@ -1,7 +1,10 @@
-<?php
+# Database Query Builder
 
-require __DIR__ . '/vendor/autoload.php';
+Simplistic Query Builder made a long time ago for fun.
 
+## Example
+
+```php
 $database = new Database\QueryBuilder\Database([
     'driver'   => 'mysql',
     'charset'  => 'utf8',
@@ -41,4 +44,5 @@ $query
         ->on('userid', '=', 5)
     ->where('tabela2.coluna2', '=', true);
 
-echo '<br><br>', (string) $query;
+echo (string) $query;
+```

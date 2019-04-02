@@ -18,13 +18,16 @@ class Database
     private $fetchMode = \PDO::FETCH_OBJ;
 
     /**
-     * @param array $config Associative array with driver, host, dbname, user, password and charset keys.
+     * @param array $config Associative array with user, password and dsn or driver, host, dbname and charset keys.
      * @throws \OutOfRangeException
      */
     public function __construct(array $config)
     {
+        $dsn = empty($config['dsn']) ? $this->dsn($config) : $config['dsn'];
+        $user = empty($config['user']) ? '' : $config['user'];
         $password = empty($config['password']) ? '' : $config['password'];
-        $this->conn = new \PDO($this->dsn($config), $config['user'], $password, []);
+
+        $this->conn = new \PDO($dsn, $user, $password, []);
 
         if (isset($config['fetchMode']) and is_int($config['fetchMode'])) {
             $this->fetchMode = $config['fetchMode'];

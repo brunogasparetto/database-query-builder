@@ -2,7 +2,9 @@
 
 namespace Database\QueryBuilder\Tests;
 
-class DatabaseTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class DatabaseTest extends TestCase
 {
     /**
      *
@@ -12,14 +14,7 @@ class DatabaseTest extends PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        self::$db = new \Database\QueryBuilder\Database([
-            'driver'   => 'sqlite',
-            'host'     => 'localhost',
-            'dbname'   => 'moodle',
-            'charset'  => 'utf8',
-            'user'     => 'root',
-            'password' => 'vagrant'
-        ]);
+        self::$db = new \Database\QueryBuilder\Database(['dsn' => 'sqlite::memory:']);
     }
 
     public function testSelect()
@@ -40,5 +35,10 @@ class DatabaseTest extends PHPUnit_Framework_TestCase
     public function testInsert()
     {
         $this->assertInstanceOf('\Database\QueryBuilder\Builder\InsertCommand', self::$db->insert('table'));
+    }
+
+    public function testExpr()
+    {
+        $this->assertInstanceOf('\Database\QueryBuilder\Builder\Clause\Expr', self::$db->expr('COUNT(*) AS total'));
     }
 }

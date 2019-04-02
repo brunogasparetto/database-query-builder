@@ -2,7 +2,9 @@
 
 namespace Database\QueryBuilder\Tests;
 
-class InsertCommandTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class InsertCommandTest extends TestCase
 {
     /**
      *
@@ -14,7 +16,7 @@ class InsertCommandTest extends PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        self::$conn = new \PDO('sqlite:memory');
+        self::$conn = new \PDO('sqlite::memory:');
     }
 
     public function setUp()

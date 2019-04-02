@@ -2,7 +2,9 @@
 
 namespace Database\QueryBuilder\Tests;
 
-class SelectCommandTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class SelectCommandTest extends TestCase
 {
     /**
      *
@@ -14,12 +16,12 @@ class SelectCommandTest extends PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        self::$conn = new \PDO('sqlite:memory');
+        self::$conn = new \PDO('sqlite::memory:');
     }
 
     public function setUp()
     {
-        $this->command = new Database\QueryBuilder\Builder\SelectCommand(self::$conn);
+        $this->command = new \Database\QueryBuilder\Builder\SelectCommand(self::$conn);
     }
 
     public function testEmptySql()
@@ -192,7 +194,7 @@ class SelectCommandTest extends PHPUnit_Framework_TestCase
 
     public function testWhereSubquery()
     {
-        $subQuery = new Database\QueryBuilder\Builder\SelectCommand(self::$conn);
+        $subQuery = new \Database\QueryBuilder\Builder\SelectCommand(self::$conn);
         $subQuery->select('id')->from('subTable')->where('removed', '=', true);
 
         $this->command->select('column')->from('table')->where('id', 'IN', $subQuery);
