@@ -1,3 +1,7 @@
+
+
+[![Build Status](https://travis-ci.org/brunogasparetto/database-query-builder.svg?branch=master)](https://travis-ci.org/brunogasparetto/database-query-builder)
+
 # Database Query Builder
 
 Simplistic Query Builder made a long time ago for fun.
