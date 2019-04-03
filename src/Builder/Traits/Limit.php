@@ -7,9 +7,9 @@ trait Limit
     /**
      * Set the Limit and Offset
      *
-     * @param int $limit
-     * @param int $offset [optional]
-     * @return \QueryBuilder\Builder\Select
+     * @param  int $limit
+     * @param  int $offset [optional]
+     * @return self
      */
     public function limit($limit, $offset = 0)
     {

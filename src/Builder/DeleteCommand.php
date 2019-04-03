@@ -36,9 +36,17 @@ class DeleteCommand extends Builder
         return 'DELETE' . $sql;
     }
 
+
+    /**
+     * Set limit
+     *
+     * @param  int $limit
+     * @return self
+     */
     public function limit($limit)
     {
         !isset($this->sqlParts->limit) and $this->sqlParts->limit = new Clause\Limit(false);
         $this->sqlParts->limit->set($limit);
+        return $this;
     }
 }

@@ -23,8 +23,8 @@ class Limit implements IClause
     /**
      * Set the Limit and Offset
      *
-     * @param int $limit
-     * @param int $offset
+     * @param  int $limit
+     * @param  int $offset
      * @throws \InvalidArgumentException
      */
     public function set($limit, $offset = 0)

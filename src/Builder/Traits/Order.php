@@ -9,9 +9,9 @@ trait Order
      *
      * Each call add more item in the Order By
      *
-     * @param string $column
-     * @param string $order [optional]
-     * @return \QueryBuilder\Builder\Select
+     * @param  string $column
+     * @param  string $order [optional]
+     * @return self
      */
     public function order($column, $order = 'ASC')
     {

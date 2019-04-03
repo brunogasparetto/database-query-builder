@@ -32,8 +32,8 @@ class SelectCommand extends Builder
      * Set the columns to retrieve.
      * Accept a variable list of arguments.
      *
-     * @param mixed $columns An array of columns or lenght variabel arguments, both with strings
-     * @return \QueryBuilder\Builder\Select
+     * @param  mixed $columns An array of columns or lenght variabel arguments, both with strings
+     * @return self
      */
     public function select($columns = null)
     {
@@ -51,8 +51,8 @@ class SelectCommand extends Builder
      * Accept multiple columns as parameters.
      * Each call adds columns.
      *
-     * @param mixed $columns An array of columns or lenght variabel arguments, both with strings
-     * @return \QueryBuilder\Builder\Select
+     * @param  mixed $columns An array of columns or lenght variabel arguments, both with strings
+     * @return self
      */
     public function group($columns)
     {
@@ -64,6 +64,11 @@ class SelectCommand extends Builder
         return $this;
     }
 
+    /**
+     * Create the having's parts
+     *
+     * @return void
+     */
     protected function setUpHaving()
     {
         !isset($this->sqlParts->having)
@@ -71,11 +76,12 @@ class SelectCommand extends Builder
     }
 
     /**
+     * Having clause
      *
-     * @param string $column
-     * @param string $op
-     * @param mixed $value
-     * @return \QueryBuilder\Builder\Select
+     * @param  string $column
+     * @param  string $op
+     * @param  mixed $value
+     * @return self
      */
     public function having($column, $op, $value)
     {
@@ -85,11 +91,12 @@ class SelectCommand extends Builder
     }
 
     /**
+     * Having OR clause
      *
-     * @param string $column
-     * @param string $op
-     * @param mixed $value
-     * @return \QueryBuilder\Builder\Select
+     * @param  string $column
+     * @param  string $op
+     * @param  mixed $value
+     * @return self
      */
     public function havingOr($column, $op, $value)
     {
@@ -99,8 +106,9 @@ class SelectCommand extends Builder
     }
 
     /**
+     * Open a group of having clause
      *
-     * @return \QueryBuilder\Builder\Select
+     * @return self
      */
     public function havingOpen()
     {
@@ -108,8 +116,9 @@ class SelectCommand extends Builder
     }
 
     /**
+     * Close a group of having clause
      *
-     * @return \QueryBuilder\Builder\Select
+     * @return self
      */
     public function havingClose()
     {
@@ -117,8 +126,9 @@ class SelectCommand extends Builder
     }
 
     /**
+     * Open a group of having clause with OR
      *
-     * @return \QueryBuilder\Builder\Select
+     * @return self
      */
     public function havingOrOpen()
     {
@@ -126,8 +136,9 @@ class SelectCommand extends Builder
     }
 
     /**
+     * Close a group of having clause with OR
      *
-     * @return \QueryBuilder\Builder\Select
+     * @return self
      */
     public function havingOrClose()
     {

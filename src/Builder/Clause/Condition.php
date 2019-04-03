@@ -2,7 +2,7 @@
 
 namespace QueryBuilder\Builder\Clause;
 
-use \QueryBuilder\Builder\Builder as Builder;
+use QueryBuilder\Builder\Builder as Builder;
 
 /**
  * Abstract Condition to implements Where and Having Clauses
@@ -16,10 +16,10 @@ abstract class Condition extends Builder implements IClause
     /**
      * Add a new Condition
      *
-     * @param string $logic
-     * @param string $column
-     * @param string $operator
-     * @param mixed $value
+     * @param  string $logic
+     * @param  string $column
+     * @param  string $operator
+     * @param  mixed $value
      * @throws \InvalidArgumentException
      */
     public function set($logic, $column = null, $operator = null, $value = null)
@@ -72,8 +72,8 @@ abstract class Condition extends Builder implements IClause
     /**
      * Set the keyword AND or OR if necessary
      *
-     * @param string $logic
-     * @param mixed $condition
+     * @param  string $logic
+     * @param  mixed $condition
      * @return boolean If returns true is necessary set the comparison
      */
     private function setLogic($logic, &$condition)
@@ -95,7 +95,7 @@ abstract class Condition extends Builder implements IClause
     /**
      * Get the SQL to the comparison
      *
-     * @param array $condition
+     * @param  array $condition
      * @return string
      */
     private function getComparisonSql(array &$condition)
@@ -123,9 +123,9 @@ abstract class Condition extends Builder implements IClause
     /**
      * Get the SQL to a null comparison
      *
-     * @param string $column
-     * @param string $operator
-     * @param mixed $value
+     * @param  string $column
+     * @param  string $operator
+     * @param  mixed $value
      * @return string
      */
     private function nullValueSql($column, $operator, $value)
@@ -145,9 +145,9 @@ abstract class Condition extends Builder implements IClause
     /**
      * Get the SQL to a BETWEEN comparison with a array in the value
      *
-     * @param string $column
-     * @param string $operator
-     * @param mixed $value
+     * @param  string $column
+     * @param  string $operator
+     * @param  mixed $value
      * @return string
      */
     private function betweenValueSql($column, $operator, $value)

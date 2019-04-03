@@ -7,8 +7,8 @@ trait From
     /**
      * Set the table from
      *
-     * @param string $table
-     * @return \QueryBuilder\Builder\Select
+     * @param  string $table
+     * @return self
      */
     public function from($table)
     {

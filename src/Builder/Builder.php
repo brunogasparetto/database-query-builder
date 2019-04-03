@@ -43,7 +43,7 @@ abstract class Builder implements Clause\ISQL
     /**
      * Convert the value to use in SQL
      *
-     * @param mixed $value
+     * @param  mixed $value
      * @return string
      */
     public function quote($value)

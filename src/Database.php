@@ -20,6 +20,7 @@ class Database
     /**
      * @param array $config Associative array with user, password and dsn or driver, host, dbname and charset keys.
      * @throws \OutOfRangeException
+     * @throws \PDOException
      */
     public function __construct(array $config)
     {

@@ -4,6 +4,9 @@ namespace QueryBuilder\Builder\Traits;
 
 trait Where
 {
+    /**
+     * Create the where's parts
+     */
     protected function setUpWhere()
     {
         !isset($this->sqlParts->where)
@@ -13,10 +16,10 @@ trait Where
     /**
      * Define the where with AND operator
      *
-     * @param string $column
-     * @param string $op
-     * @param mixed $value
-     * @return \QueryBuilder\Builder\Select
+     * @param  string $column
+     * @param  string $op
+     * @param  mixed $value
+     * @return self
      */
     public function where($column, $op, $value)
     {
@@ -28,10 +31,10 @@ trait Where
     /**
      * Define the where with OR operator
      *
-     * @param string $column
-     * @param string $op
-     * @param mixed $value
-     * @return \QueryBuilder\Builder\Select
+     * @param  string $column
+     * @param  string $op
+     * @param  mixed $value
+     * @return self
      */
     public function whereOr($column, $op, $value)
     {
@@ -43,7 +46,7 @@ trait Where
     /**
      * Open a Where group with AND operator
      *
-     * @return \QueryBuilder\Builder\Select
+     * @return self
      */
     public function whereOpen()
     {
@@ -53,7 +56,7 @@ trait Where
     /**
      * Close the Where group with AND operator
      *
-     * @return \QueryBuilder\Builder\Select
+     * @return self
      */
     public function whereClose()
     {
@@ -63,7 +66,7 @@ trait Where
     /**
      * Open a Where group with OR operator
      *
-     * @return \QueryBuilder\Builder\Select
+     * @return self
      */
     public function whereOrOpen()
     {
@@ -73,7 +76,7 @@ trait Where
     /**
      * Close the Where group with OR operator
      *
-     * @return \QueryBuilder\Builder\Select
+     * @return self
      */
     public function whereOrClose()
     {

@@ -11,8 +11,8 @@ class InsertCommand extends Builder
     /**
      * Set the valeus to insert
      *
-     * @param mixed $values Array or object with keys/properties as the table fields
-     * @return InsertCommand
+     * @param  mixed $values Array or object with keys/properties as the table fields
+     * @return self
      */
     public function values($values)
     {
@@ -30,8 +30,8 @@ class InsertCommand extends Builder
     /**
      * Set the table to insert
      *
-     * @param string $table
-     * @return InsertCommand
+     * @param  string $table
+     * @return self
      */
     public function into($table)
     {
@@ -68,9 +68,9 @@ class InsertCommand extends Builder
     /**
      * On Duplicate clause
      *
-     * @param mixed $column String or array/object with keys/properties as the table fields
-     * @param mixed $expr
-     * @return InsertCommand
+     * @param  mixed $column String or array/object with keys/properties as the table fields
+     * @param  mixed $expr
+     * @return self
      */
     public function onDuplicate($column, $expr = null)
     {

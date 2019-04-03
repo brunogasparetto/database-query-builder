@@ -17,7 +17,7 @@ class PartsContainer implements \Countable, \ArrayAccess
     /**
      * Get the Clause Part
      *
-     * @param string $clause
+     * @param  string $clause
      * @return IClause
      * @throws \OutOfRangeException
      */
@@ -43,7 +43,7 @@ class PartsContainer implements \Countable, \ArrayAccess
     /**
      * Isset magic method
      *
-     * @param string $clause
+     * @param  string $clause
      * @return bool
      */
     public function __isset($clause)
@@ -62,7 +62,7 @@ class PartsContainer implements \Countable, \ArrayAccess
     }
 
     /**
-     * @param string $clause
+     * @param  string $clause
      * @return bool
      */
     public function offsetExists($clause)
@@ -71,7 +71,7 @@ class PartsContainer implements \Countable, \ArrayAccess
     }
 
     /**
-     * @param string $clause
+     * @param  string $clause
      * @return IClause
      */
     public function offsetGet($clause)

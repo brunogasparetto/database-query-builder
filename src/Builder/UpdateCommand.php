@@ -48,8 +48,8 @@ class UpdateCommand extends Builder
     /**
      * Set the table to update
      *
-     * @param string $table
-     * @return UpdateCommand
+     * @param  string $table
+     * @return self
      */
     public function update($table)
     {
@@ -60,8 +60,8 @@ class UpdateCommand extends Builder
     /**
      * Set limit clause
      *
-     * @param int $limit
-     * @return UpdateCommand
+     * @param  int $limit
+     * @return self
      */
     public function limit($limit)
     {
@@ -73,8 +73,8 @@ class UpdateCommand extends Builder
     /**
      * Set the values
      *
-     * @param mixed $column String or array/object with the keys/properties as the table fields
-     * @param mixed $expr
+     * @param  mixed $column String or array/object with the keys/properties as the table fields
+     * @param  mixed $expr
      * @return void
      */
     public function values($column, $expr = null)
