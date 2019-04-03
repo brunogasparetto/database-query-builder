@@ -17,7 +17,7 @@ $ composer require brunogasparetto/query-builder
 ## Example
 
 ```php
-$database = new Database\QueryBuilder\Database([
+$database = new QueryBuilder\Database([
     'driver'   => 'mysql',
     'charset'  => 'utf8',
     'host'     => 'localhost',
@@ -37,15 +37,7 @@ $query = $database
     ->whereOrOpen()
         ->where('column1', '=', 10)
         ->where('column2', '=', 'Other Name')
-    ->whereOrClose()
-    ->havingOpen()
-        ->having('column1', '=', 5)
-        ->havingOr('column2', '!=', 'Name')
-    ->havingClose()
-    ->havingOpen()
-        ->having('column3', '=', 15)
-        ->havingOr('column4', '!=', 'Full Name')
-    ->havingClose();
+    ->whereOrClose();
 
 echo (string) $query;
 
