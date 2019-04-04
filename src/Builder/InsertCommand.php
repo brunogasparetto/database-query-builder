@@ -4,28 +4,11 @@ namespace QueryBuilder\Builder;
 
 class InsertCommand extends Builder
 {
+    use Traits\Values;
+
     private $values = [];
     private $table = '';
     private $duplicates = [];
-
-    /**
-     * Set the valeus to insert
-     *
-     * @param  mixed $values Array or object with keys/properties as the table fields
-     * @return self
-     */
-    public function values($values)
-    {
-        if (is_object($values)) {
-            $values = (array) $values;
-        } elseif (!is_array($values)) {
-            throw new \InvalidArgumentException('Must be a array or a object with public properties');
-        }
-        foreach ($values as $column => $value) {
-            $this->values[$column] = $this->quote($value);
-        }
-        return $this;
-    }
 
     /**
      * Set the table to insert

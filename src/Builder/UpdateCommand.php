@@ -4,12 +4,13 @@ namespace QueryBuilder\Builder;
 
 class UpdateCommand extends Builder
 {
-    private $table = '';
-    private $values = [];
-
     use Traits\Join;
     use Traits\Where;
     use Traits\Order;
+    use Traits\Values;
+
+    private $table = '';
+    private $values = [];
 
     /**
      * Get the SQL
@@ -67,25 +68,6 @@ class UpdateCommand extends Builder
     {
         !isset($this->sqlParts->limit) and $this->sqlParts->limit = new Clause\Limit(false);
         $this->sqlParts->limit->set($limit);
-        return $this;
-    }
-
-    /**
-     * Set the values
-     *
-     * @param  mixed $column String or array/object with the keys/properties as the table fields
-     * @param  mixed $expr
-     * @return void
-     */
-    public function values($column, $expr = null)
-    {
-        if (is_array($column) or is_object($column)) {
-            foreach ((array) $column as $column => $expr) {
-                $this->values[$column] = ($expr instanceof Clause\ISQL) ? $expr->sql() : $this->quote($expr);
-            }
-        } else {
-            $this->values[$column] = ($expr instanceof Clause\ISQL) ? $expr->sql() : $this->quote($expr);
-        }
         return $this;
     }
 }
